@@ -5,7 +5,7 @@ JC = javac
         $(JC) $(JFLAGS) $*.java
 
 CLASSES = \
-        binary_heap.java \
+        BinaryHeap.java \
 
 default: classes
 
