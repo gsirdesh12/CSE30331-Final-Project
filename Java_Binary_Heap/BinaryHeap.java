@@ -148,6 +148,7 @@ class BinaryHeap
         BinaryHeap bh = new BinaryHeap(scan.nextInt() );
 
 				// Insert elements into binary heap
+        long startTime1 = System.nanoTime();
 				bh.insert(700);
 				bh.insert(500);
 				bh.insert(100);
@@ -158,17 +159,33 @@ class BinaryHeap
 				bh.insert(1000);
 				bh.insert(300);
 				bh.insert(600);
+        long endTime1 = System.nanoTime();
+        long elapsedTime1 = endTime1 - startTime1;
+        System.out.println("Time to insert 10 items is " + elapsedTime1 " seconds.");
+
+        // Find the minimum element in binary heap
+        long startTime2 = System.nanoTime();
+				int minElement = bh.findMin();
+        System.out.println("Minimum element is " + minElement);
+        long endTime2 = System.nanoTime();
+        long elapsedTime2 = endTime2 - startTime2;
+        System.out.println("Time to find minimum element is " + elapsedTime2 " seconds.");
+
+				// Print heap
+        long startTime3 = System.nanoTime();
+				bh.printHeap();
+        long endTime3 = System.nanoTime();
+        long elapsedTime3 = endTime3 - startTime3;
+        System.out.println("Time to print heap is " + elapsedTime2 " seconds.");
 
 				// Delete minimum element from binary heap (and print it out)
+        long startTime4 = System.nanoTime();
 				for (int i = 0; i < bh.heapSize; i++) {
 					System.out.println(bh.deleteMin());
 				}
-
-				// Find the minimum element in binary heap
-				bh.findMin();
-
-				// Print heap
-				bh.printHeap();
+        long endTime4 = System.nanoTime();
+        long elapsedTime4 = endTime4 - startTime4;
+        System.out.println("Time to delete 10 items and print them out is " + elapsedTime4 " seconds.");
 
         /*char ch;
         do

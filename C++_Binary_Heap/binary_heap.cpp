@@ -11,6 +11,8 @@ public:
     int deletemin();
     void print();
     int size() { return heap.size(); }
+    boolean isempty();
+    int findmin();
 private:
     int left(int parent);
     int right(int parent);
@@ -29,6 +31,11 @@ Heap::~Heap()
 {
 }
 
+boolean Heap::isempty()
+{
+  return heap.size() == 0;
+}
+
 void Heap::insert(int element)
 {
     heap.push_back(element);
@@ -42,6 +49,11 @@ int Heap::deletemin()
     heap.pop_back();
     heapifydown(0);
     return min;
+}
+
+int Heap::findmin()
+{
+  return heap[0];
 }
 
 void Heap::print()
@@ -117,6 +129,7 @@ int main()
 {
     // Create the heap
     Heap* myheap = new Heap();
+    auto start = std::chrono::high_resolution_clock::now();
     myheap->insert(700);
     myheap->print();
     myheap->insert(500);
@@ -137,12 +150,27 @@ int main()
     myheap->print();
     myheap->insert(600);
     myheap->print();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end-start;
+
+    auto start_min = std::chrono::high_resolution_clock::now();
+    int min = myheap.findmin();
+    cout << "Minimum element is " << min;
+    auto end_min = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff_min = end_min - start_min;
 
     // Get priority element from the heap
+    auto start_delete = std::chrono::high_resolution_clock::now();
     int heapSize = myheap->size();
-    for ( int i = 0; i < heapSize; i++ )
+    for ( int i = 0; i < heapSize; i++ ) {
         cout << myheap->deletemin() << endl;
+    }
+    auto end_delete = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff_delete = end_delete - start_delete;
 
-    // Cleanup
+    cout << "Time to insert 10 items and print " << diff.count();
+    cout << "Time to delete minimum element and print " << diff_delete.count();
+    cout << "Time to find minimum element and print " << diff_min.count();
+
     delete myheap;
 }
