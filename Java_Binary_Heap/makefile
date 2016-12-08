@@ -2,14 +2,13 @@ JFLAGS = -g
 JC = javac
 .SUFFIXES: .java .class
 .java.class:
-        $(JC) $(JFLAGS) $*.java
+	$(JC) $(JFLAGS) $*.java
 
-CLASSES = \
-        BinaryHeap.java \
+CLASSES = BinaryHeap.java
 
 default: classes
 
 classes: $(CLASSES:.java=.class)
 
 clean:
-        $(RM) *.class
+	$(RM) *.class

@@ -130,7 +130,7 @@ int main()
     cout << "How many elements are in the heap? ";
     int heapSize;
     cin >> heapSize;
-    
+
     // Create the heap
     Heap* myheap = new Heap();
     auto start = std::chrono::high_resolution_clock::now();
@@ -145,11 +145,11 @@ int main()
     myheap->insert(300);
     myheap->insert(600);
     myheap->print();*/
-    
+
     for (int i = 0; i < heapSize+1; i++) {
         myheap->insert(i);
     }
-    
+
     //myheap->print();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
@@ -175,4 +175,3 @@ int main()
 
     delete myheap;
 }
-
