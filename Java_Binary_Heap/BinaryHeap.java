@@ -143,7 +143,7 @@ class BinaryHeap
     {
         Scanner scan = new Scanner(System.in);
         //System.out.println("Binary Heap Test\n\n");
-        System.out.println("Enter size of Binary heap");
+        System.out.print("Enter size of Binary heap: ");
         int size = scan.nextInt();
         
         // Make object of BinaryHeap
@@ -166,7 +166,7 @@ class BinaryHeap
 				bh.insert(600);*/
         long endTime1 = System.nanoTime();
         long elapsedTime1 = endTime1 - startTime1;
-        System.out.println("Time to insert 10 items is " + elapsedTime1 + " nanoseconds.");
+        System.out.println("Time to insert " + size + " items is " + elapsedTime1 + " nanoseconds.");
 
         // Find the minimum element in binary heap
         long startTime2 = System.nanoTime();
@@ -182,6 +182,15 @@ class BinaryHeap
         long endTime3 = System.nanoTime();
         long elapsedTime3 = endTime3 - startTime3;
         System.out.println("Time to print heap is " + elapsedTime3 + " nanoseconds.");*/
+        
+        // Delete element at index
+        int index = size/2;
+        long startTime5 = System.nanoTime();
+        int deletedElement = bh.delete(index);
+        long endTime5 = System.nanoTime();
+        long elapsedTime5 = endTime5 - startTime5;
+        System.out.println("Time to delete element at index " + index + " is " + elapsedTime5 + " nanoseconds.");
+        
 
         // Delete minimum element from binary heap (and print it out)
         long startTime4 = System.nanoTime();
@@ -191,8 +200,8 @@ class BinaryHeap
         }
         long endTime4 = System.nanoTime();
         long elapsedTime4 = endTime4 - startTime4;
-        System.out.println("Time to delete 10 items and print them out is " + elapsedTime4 + " nanoseconds.");
-
+        System.out.println("Time to delete " + size + " items and print them out is " + elapsedTime4 + " nanoseconds.");
+        
         /*char ch;
         do
         {
