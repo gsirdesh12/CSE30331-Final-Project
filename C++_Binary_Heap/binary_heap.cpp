@@ -13,6 +13,7 @@ public:
     int size() { return heap.size(); }
     bool isempty();
     int findmin();
+    //vector<int> mergeheaps(vector<int> a, vector<int> b)
 private:
     int left(int parent);
     int right(int parent);
@@ -124,6 +125,10 @@ int Heap::parent(int child)
     }
     return -1;
 }
+
+/*vector<int> Heap::mergeheaps(Heap* a, Heap* b) {
+
+}*/
 
 int main()
 {

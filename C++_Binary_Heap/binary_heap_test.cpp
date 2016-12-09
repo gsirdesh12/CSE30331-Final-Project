@@ -2,11 +2,21 @@
 
 using namespace std;
 
-TEST_CASE( "Elements can be inserted into binary heap ", "[insert]") {
+TEST_CASE( "Testing operations on binary heap", "[Heap]") {
 
     Heap* testHeap = new Heap();
 
-    testHeap->insert(100);
-    REQUIRE(testHeap->deletemin() == 100);
+    SECTION("Checking if empty") {
+      REQUIRE(testHeap.isempty() == true);
+    }
 
+    SECTION("Inserting an element") {
+      testHeap->insert(100);
+      REQUIRE(testHeap->findmin() == 100);
+    }
+
+    SECTION("Deleting minimum element") {
+      testHeap->insert(200)
+      REQUIRE(testHeap->deletemin() == 100);
+    }
 }
