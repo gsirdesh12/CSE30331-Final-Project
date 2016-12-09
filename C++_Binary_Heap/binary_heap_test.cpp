@@ -17,7 +17,7 @@ TEST_CASE( "Testing operations on binary heap", "[Heap]") {
     }
     
     SECTION("Finding minimum element") {
-        REQUIRE(testHeap->findmin() == 100)
+        REQUIRE(testHeap->findmin() == 100);
     }
 
     SECTION("Deleting minimum element") {

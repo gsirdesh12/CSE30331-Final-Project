@@ -1,12 +1,12 @@
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class BinaryHeapTest {
 
   @Test
   public void emptyTest() {
-    BinaryHeap myHeap = new BinaryHeap();
+    BinaryHeap myHeap = new BinaryHeap(10);
 
     // Assert statements
     assertEquals(true, myHeap.isEmpty());
@@ -14,7 +14,7 @@ public class BinaryHeapTest {
 
   @Test
   public void insertTest() {
-    BinaryHeap myHeap = new BinaryHeap();
+    BinaryHeap myHeap = new BinaryHeap(10);
 
     myHeap.insert(500);
 
@@ -24,7 +24,7 @@ public class BinaryHeapTest {
 
   @Test
   public void deleteMinTest() {
-    BinaryHeap myHeap = new BinaryHeap();
+    BinaryHeap myHeap = new BinaryHeap(10);
 
     myHeap.insert(500);
     myHeap.insert(700);
@@ -35,7 +35,7 @@ public class BinaryHeapTest {
 
   @Test
   public void deleteTest() {
-    BinaryHeap myHeap = new BinaryHeap();
+    BinaryHeap myHeap = new BinaryHeap(10);
 
     myHeap.insert(500);
     myHeap.insert(700);

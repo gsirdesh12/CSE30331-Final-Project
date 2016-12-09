@@ -5,27 +5,6 @@ using namespace std;
 
 #include "heap.h"
 
-/*class Heap {
-public:
-    Heap();
-    ~Heap();
-    void insert(int element);
-    int deletemin();
-    void print();
-    int size() { return heap.size(); }
-    bool isempty();
-    int findmin();
-    //vector<int> mergeheaps(vector<int> a, vector<int> b)
-private:
-    int left(int parent);
-    int right(int parent);
-    int parent(int child);
-    void heapifyup(int index);
-    void heapifydown(int index);
-private:
-    vector<int> heap;
-};*/
-
 Heap::Heap()
 {
 }
@@ -62,7 +41,6 @@ int Heap::findmin()
 void Heap::print()
 {
     vector<int>::iterator pos = heap.begin();
-    //cout << "Heap = ";
     while ( pos != heap.end() ) {
         cout << *pos << " ";
         ++pos;
@@ -72,10 +50,6 @@ void Heap::print()
 
 void Heap::heapifyup(int index)
 {
-    //cout << "index=" << index << endl;
-    //cout << "parent(index)=" << parent(index) << endl;
-    //cout << "heap[parent(index)]=" << heap[parent(index)] << endl;
-    //cout << "heap[index]=" << heap[index] << endl;
     while ((index > 0) && (parent(index) >= 0) &&
             (heap[parent(index)] > heap[index]))
     {
@@ -88,9 +62,6 @@ void Heap::heapifyup(int index)
 
 void Heap::heapifydown(int index)
 {
-    //cout << "index=" << index << endl;
-    //cout << "left(index)=" << left(index) << endl;
-    //cout << "right(index)=" << right(index) << endl;
     int child = left(index);
     if ( ( child > 0 ) && ( right(index) > 0 ) &&
          ( heap[child] > heap[right(index)] ) )
@@ -128,10 +99,6 @@ int Heap::parent(int child)
     return -1;
 }
 
-/*vector<int> Heap::mergeheaps(Heap* a, Heap* b) {
-
-}*/
-
 int main()
 {
     cout << "How many elements are in the heap? ";
@@ -141,23 +108,11 @@ int main()
     // Create the heap
     Heap* myheap = new Heap();
     auto start = std::chrono::high_resolution_clock::now();
-    /*myheap->insert(700);
-    myheap->insert(500);
-    myheap->insert(100);
-    myheap->insert(800);
-    myheap->insert(200);
-    myheap->insert(400);
-    myheap->insert(900);
-    myheap->insert(1000);
-    myheap->insert(300);
-    myheap->insert(600);
-    myheap->print();*/
 
     for (int i = 0; i < heapSize+1; i++) {
         myheap->insert(i);
     }
 
-    //myheap->print();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
 
@@ -179,6 +134,9 @@ int main()
     cout << "Time to insert " << heapSize << " items and print: " << diff.count() << endl;
     cout << "Time to delete minimum element: " << diff_delete.count() << endl;
     cout << "Time to find minimum element and print: " << diff_min.count() << endl;
+    
+    cout << "The heap: ";
+    myheap->print();
 
     delete myheap;
 }
