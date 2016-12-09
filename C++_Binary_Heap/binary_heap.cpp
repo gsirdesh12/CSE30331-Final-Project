@@ -3,7 +3,9 @@
 #include <iterator>
 using namespace std;
 
-class Heap {
+#include "heap.h"
+
+/*class Heap {
 public:
     Heap();
     ~Heap();
@@ -22,7 +24,7 @@ private:
     void heapifydown(int index);
 private:
     vector<int> heap;
-};
+};*/
 
 Heap::Heap()
 {
