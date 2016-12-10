@@ -134,7 +134,8 @@ int main()
     cout << "Time to insert " << heapSize << " items and print: " << diff.count() << endl;
     cout << "Time to delete minimum element: " << diff_delete.count() << endl;
     cout << "Time to find minimum element and print: " << diff_min.count() << endl;
-    
+
+    // Print heap
     cout << "The heap: ";
     myheap->print();
 
